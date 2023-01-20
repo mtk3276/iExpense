@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class User {
+class User : ObservedObject {
     
 }
 

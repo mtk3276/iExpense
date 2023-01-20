@@ -13,14 +13,15 @@ class User : ObservableObject {
 }
 
 struct ContentView: View {
+    @StateObject var user = User()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
-            Text("Test text")
-            Text("Test text 2")
+            
         }
         .padding()
     }

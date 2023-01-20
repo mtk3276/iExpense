@@ -8,7 +8,8 @@
 import SwiftUI
 
 class User : ObservableObject {
-    
+    @Published var firstName = "Bilbo"
+    @Published var lastName = "Baggins"
 }
 
 struct ContentView: View {

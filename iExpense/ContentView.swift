@@ -15,6 +15,8 @@ class User : ObservableObject {
 struct ContentView: View {
     @StateObject var user = User()
     
+    @State private var showingSheet = false
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -24,6 +26,14 @@ struct ContentView: View {
             
         }
         .padding()
+    }
+}
+
+struct SecondView : View {
+    var body: some View {
+        VStack {
+            
+        }
     }
 }
 

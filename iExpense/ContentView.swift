@@ -26,7 +26,7 @@ struct ContentView: View {
             .background(Color(red: 150/255, green: 200/255, blue: 200/255))
             .clipShape(Capsule())
             .sheet(isPresented: $showingSheet) {
-                SecondView()
+                SecondView(user: user)
             }
         }
         .padding()
@@ -34,9 +34,11 @@ struct ContentView: View {
 }
 
 struct SecondView : View {
+    @ObservedObject var user : User
+    
     var body: some View {
         VStack {
-            
+            Text("Hello \(user.firstName) \(user.lastName)")
         }
     }
 }

@@ -34,14 +34,14 @@ struct ContentView: View {
 }
 
 struct SecondView : View {
-    @Environment(\.dismiss) var dismisss
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var user : User
     
     var body: some View {
         VStack {
             Text("Hello \(user.firstName) \(user.lastName)")
             Button("Dismiss") {
-                // dismiss code
+                dismiss
             }
         }
     }

@@ -34,11 +34,22 @@ struct ContentView: View {
 }
 
 struct SecondView : View {
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var user : User
     
     var body: some View {
         VStack {
+            Spacer();Spacer();Spacer()
             Text("Hello \(user.firstName) \(user.lastName)")
+            Spacer();Spacer();Spacer()
+            Button("Dismiss") {
+                dismiss()
+            }
+            .padding()
+            .background(Color(red: 220/255, green:100/255, blue: 100/255))
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            Spacer()
         }
     }
 }

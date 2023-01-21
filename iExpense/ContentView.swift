@@ -19,11 +19,12 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-            
+            Button("Show second view") {
+                showingSheet.toggle()
+            }
+            .padding()
+            .background(Color(red: 150/255, green: 200/255, blue: 200/255))
+            .clipShape(Capsule())
         }
         .padding()
     }

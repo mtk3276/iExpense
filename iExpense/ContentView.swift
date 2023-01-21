@@ -39,6 +39,9 @@ struct SecondView : View {
     var body: some View {
         VStack {
             Text("Hello \(user.firstName) \(user.lastName)")
+            Button("Dismiss") {
+                // dismiss code
+            }
         }
     }
 }

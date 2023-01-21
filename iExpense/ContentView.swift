@@ -34,6 +34,7 @@ struct ContentView: View {
 }
 
 struct SecondView : View {
+    @Environment(\.dismiss) var dismisss
     @ObservedObject var user : User
     
     var body: some View {

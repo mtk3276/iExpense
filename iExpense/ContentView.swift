@@ -25,6 +25,9 @@ struct ContentView: View {
             .padding()
             .background(Color(red: 150/255, green: 200/255, blue: 200/255))
             .clipShape(Capsule())
+            .sheet(isPresented: $showingSheet) {
+                SecondView()
+            }
         }
         .padding()
     }

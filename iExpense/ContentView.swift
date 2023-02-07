@@ -27,6 +27,7 @@ struct ContentView: View {
                 ForEach(numbers, id: \.self) {
                     Text("Row \($0)")
                 }
+                .onDelete(perform: removeRows)
             }
             
             Button("Add row"){
@@ -53,6 +54,10 @@ struct ContentView: View {
             
         }
         .padding()
+    }
+    
+    func removeRows(at offsets: IndexSet) {
+        numbers.remove(atOffsets: offsets)
     }
 }
 

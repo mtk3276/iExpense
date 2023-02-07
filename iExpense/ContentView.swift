@@ -21,39 +21,41 @@ struct ContentView: View {
     @State private var currentSize = 0
     
     var body: some View {
-        VStack {
-            
-            List {
-                ForEach(numbers, id: \.self) {
-                    Text("Row \($0)")
+        NavigationView {
+            VStack {
+                
+                List {
+                    ForEach(numbers, id: \.self) {
+                        Text("Row \($0)")
+                    }
+                    .onDelete(perform: removeRows)
                 }
-                .onDelete(perform: removeRows)
+                
+                Button("Add row"){
+                    currentSize+=1
+                    numbers.append(currentSize)
+                }
+                .padding()
+                .frame(width: 200)
+                .background(Color(red: 150/255, green: 200/255, blue: 200/255))
+                .clipShape(Capsule())
+                
+                Spacer()
+                
+                Button("Show second view") {
+                    showingSheet.toggle()
+                }
+                .padding()
+                .frame(width: 200)
+                .background(Color(red: 150/255, green: 200/255, blue: 200/255))
+                .clipShape(Capsule())
+                .sheet(isPresented: $showingSheet) {
+                    SecondView(user: user)
+                }
+            }.toolbar {
+                EditButton()
             }
-            
-            Button("Add row"){
-                currentSize+=1
-                numbers.append(currentSize)
-            }
-            .padding()
-            .frame(width: 200)
-            .background(Color(red: 150/255, green: 200/255, blue: 200/255))
-            .clipShape(Capsule())
-            
-            Spacer()
-            
-            Button("Show second view") {
-                showingSheet.toggle()
-            }
-            .padding()
-            .frame(width: 200)
-            .background(Color(red: 150/255, green: 200/255, blue: 200/255))
-            .clipShape(Capsule())
-            .sheet(isPresented: $showingSheet) {
-                SecondView(user: user)
-            }
-            
         }
-        .padding()
     }
     
     func removeRows(at offsets: IndexSet) {
